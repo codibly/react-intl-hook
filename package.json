@@ -1,0 +1,94 @@
+{
+  "name": "@codibly/react-intl-hook",
+  "version": "0.0.0-development",
+  "description": "",
+  "repository": "https://github.com/codibly/react-intl-hook.git",
+  "license": "MIT",
+  "author": "jarek <jarek.kuliga@codibly.com>",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "scripts": {
+    "build": "rollup -c",
+    "precommit": "lint-staged && yarn build && yarn test",
+    "commit": "./node_modules/.bin/git-cz",
+    "doc": "typedoc --out doc --mode file --ignoreCompilerErrors src",
+    "format": "prettier --write \"src/**/*\"",
+    "lint": "tslint --project tsconfig.json",
+    "semantic-release": "semantic-release",
+    "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && yarn build && yarn test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,yml,json,md,html}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{ts,tsx}": [
+      "tslint --fix --project tsconfig.json",
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@codibly/tslint-standard": "^0.0.3",
+    "@commitlint/config-conventional": "^8.0.0",
+    "@testing-library/react": "^8.0.1",
+    "@types/jest": "^24.0.0",
+    "@types/react": "^16.8.20",
+    "@types/react-dom": "^16.8.4",
+    "commitlint": "^8.0.0",
+    "git-cz": "^3.0.1",
+    "husky": "^2.3.0",
+    "jest": "^24.1.0",
+    "jest-haste-map": "^24.4.0",
+    "jest-resolve": "^24.4.0",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.15.3",
+    "rollup": "^1.0.2",
+    "rollup-plugin-cleaner": "^0.2.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-typescript2": "^0.21.1",
+    "semantic-release": "^15.13.24",
+    "ts-jest": "^24.0.0",
+    "tslib": "^1.9.3",
+    "tslint": "^5.12.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typedoc": "^0.14.2",
+    "typescript": "^3.4.5"
+  },
+  "release": {
+    "branches": [
+      "master",
+      {
+        "name": "beta",
+        "prerelease": true
+      },
+      {
+        "name": "alpha",
+        "prerelease": true
+      }
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

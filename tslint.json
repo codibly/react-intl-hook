@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "@codibly/tslint-standard",
+    "tslint:recommended",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "object-literal-sort-keys": false,
+    "interface-name": [true, "never-prefix"],
+    "array-type": [true, "array"],
+    "no-namespace": false
+  }
+}

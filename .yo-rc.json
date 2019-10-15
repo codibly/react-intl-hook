@@ -1,0 +1,9 @@
+{
+  "generator-codibly-ts": {
+    "name": "react-intl-hook",
+    "description": "",
+    "version": "0.0.0-semantic-release",
+    "repository": "https://github.com/codibly/react-intl-hook.git",
+    "author": "jarek <jarek.kuliga@codibly.com>"
+  }
+}
